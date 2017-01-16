@@ -24,11 +24,11 @@ public class App {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pun");
         EntityManager em = emf.createEntityManager();
         
-        Messaggio msg = new Messaggio("pranzo ...");
+        Messaggio msg = new Messaggio("pranzo ...");  //equivale a ciò che vogliamo inserire come record
         
-        em.getTransaction().begin();
-        em.merge(msg);
-        em.getTransaction().commit();
+        em.getTransaction().begin();                    //apre la connessione al db
+        em.merge(msg);                                  //scrive il nostro messaggio sul db
+        em.getTransaction().commit();                   //salva il nostro mnessaggio sul db
         
     }
     
