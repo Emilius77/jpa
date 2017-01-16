@@ -27,7 +27,15 @@ public class App {
         Messaggio msg = new Messaggio("pranzo ...");  //equivale a ciò che vogliamo inserire come record
         
         em.getTransaction().begin();                    //apre la connessione al db
-        em.merge(msg);                                  //scrive il nostro messaggio sul db
+        //em.merge(msg);                                  //scrive il nostro messaggio sul db
+        Messaggio finded = em.find(Messaggio.class, 1l);
+        
+        System.out.println(finded);
+        
+        finded.setTesto(finded.getTesto() + " adesso!!!");
+        
+        em.merge(finded);
+        
         em.getTransaction().commit();                   //salva il nostro mnessaggio sul db
         
     }

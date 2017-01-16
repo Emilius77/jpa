@@ -33,15 +33,15 @@ public class Messaggio implements Serializable {
 
     @Id
     @GeneratedValue             //equivale all'auto incremento del db
-    private int id;
+    private Long id;
 
     private String testo;       //di default prendo il tipo Varchar con lunghezza 255 caratteri
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -55,10 +55,10 @@ public class Messaggio implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 19 * hash + this.id;
-        return hash;
+        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
 
     @Override
     public boolean equals(Object obj) {
